@@ -15,6 +15,9 @@
 
 <body>
 
+<nav>
+    <?js= this.nav ?>
+</nav>
 <div id="main">
 
     <h1 class="page-title"><?js= title ?></h1>
@@ -22,14 +25,10 @@
     <?js= content ?>
 </div>
 
-<nav>
-    <?js= this.nav ?>
-</nav>
-
 <br class="clear">
 
 <footer>
-    © <?js= new Date().getUTCFullYear() ?> OpenFin All Rights Reserved.
+    © <?js= new Date().getUTCFullYear() ?> <a href="http://www.openfin.co" target="_blank">OpenFin</a> All Rights Reserved.
 </footer>
 
 <script> prettyPrint(); </script>
