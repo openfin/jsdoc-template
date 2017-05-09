@@ -34,11 +34,21 @@ tt, code, kbd, samp {
     font-family: Consolas, Monaco, 'Roboto', monospace;
 }
 
-.class-description {
-    font-size: 130%;
+.class-description, .description {
+    font-size: 110%;
     line-height: 140%;
     margin-bottom: 1em;
     margin-top: 1em;
+}
+
+td.description {
+    font-size: unset;
+    line-height: unset;
+}
+
+.class-description li, .description li {
+    line-height: unset;
+    margin-bottom: .4em;
 }
 
 .class-description:empty {
@@ -198,11 +208,6 @@ h6
 .details pre.prettyprint { margin: 0 }
 .details .object-value { padding-top: 0; }
 
-.description {
-    margin-bottom: 1em;
-    margin-top: 1em;
-}
-
 .code-caption
 {
     font-style: italic;
@@ -338,4 +343,8 @@ h6
         padding-left: 16px;
         border-top:black solid 1px;
     }
+}
+
+a[href="global.html"] {
+    display: none
 }
