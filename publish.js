@@ -30,7 +30,10 @@ function tutoriallink(tutorial) {
 }
 
 function getAncestorLinks(doclet) {
-    return helper.getAncestorLinks(data, doclet);
+    const ancestors = helper.getAncestorLinks(data, doclet);
+    return ancestors.map(a => {
+        return a.replace('>.Int', '>Int');
+    });
 }
 
 function hashToLink(doclet, hash) {
@@ -295,11 +298,19 @@ function buildMemberNav(items, itemHeading, itemsSeen, linktoFn) {
         var itemsNav = '';
 
         items.forEach(function(item) {
+            if(item.name === 'ChannelClient' || item.name === 'ChannelProvider') {
+                return nav;
+            }
+            let nameToUse = item.name;
+            if (nameToUse === 'Channel') {
+                nameToUse = String.fromCharCode(160)+ '   - ' + nameToUse;
+            }
+
             if ( !hasOwnProp.call(item, 'longname') ) {
-                itemsNav += '<li>' + linktoFn('', item.name) + '</li>';
+                itemsNav += '<li>' + linktoFn('', nameToUse) + '</li>';
             }
             else if ( !hasOwnProp.call(itemsSeen, item.longname) ) {
-                itemsNav += '<li>' + linktoFn(item.longname, item.name.replace(/^module:/, '')) + '</li>';
+                itemsNav += '<li>' + linktoFn(item.longname, nameToUse.replace(/^module:/, '')) + '</li>';
                 itemsSeen[item.longname] = true;
             }
         });
