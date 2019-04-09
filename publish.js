@@ -298,9 +298,6 @@ function buildMemberNav(items, itemHeading, itemsSeen, linktoFn) {
         var itemsNav = '';
 
         items.forEach(function(item) {
-            if(item.name === 'ChannelClient' || item.name === 'ChannelProvider') {
-                return nav;
-            }
             let nameToUse = item.name;
             if (nameToUse === 'Channel') {
                 nameToUse = String.fromCharCode(160)+ '   - ' + nameToUse;
