@@ -15,6 +15,12 @@ var self = this;
     <?js } ?>
 <?js } ?>
 
+<?js if (data.tags && tags.length) { ?>
+    <div class="custom-tags">
+        <?js= self.partial('custom-tags.tmpl', tags) ?>
+    </div>
+<?js } ?>
+
 <?js if (data.kind !== 'module' && data.description) { ?>
 <div class="description">
     <?js= data.description ?>
